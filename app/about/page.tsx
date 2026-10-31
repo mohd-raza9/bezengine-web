@@ -51,6 +51,14 @@ const capabilities = [
   'Complete online business solutions',
 ]
 
+const founders = ['Noman Khan', 'Mohammad Aman']
+const team = [
+  { name: 'Rza', role: 'Technical Head' },
+  { name: 'Abu Bakr', role: 'Technical Head' },
+  { name: 'Amir', role: 'Marketing Head' },
+  { name: 'Sadia', role: 'Marketing Head' },
+]
+
 export default function AboutPage() {
   return (
     <main className="about-page">
@@ -91,6 +99,43 @@ export default function AboutPage() {
             <p>Growing a business online can feel like a lot to take on at once. You may need a website, better visibility, an online store, or simply a clearer plan for where to start.</p>
             <p>BizEngine brings these needs together in one place. We listen first, explain your options in plain language, and help you move forward with solutions that fit your goals.</p>
             <p>Based in Meerut and working with businesses at different stages, we want digital growth to feel more approachable, more useful, and easier to act on.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-story" id="our-story">
+        <div className="container about-story-grid">
+          <div className="about-story-copy">
+            <span className="section-kicker">Our story</span>
+            <h2>Making digital growth feel <span>within reach.</span></h2>
+            <p>BizEngine brings practical digital support together in one place. Founded by Noman Khan and Mohammad Aman, our goal is to help businesses find a clear path from their next idea to their next opportunity.</p>
+            <p>Today, our technical and marketing team works together to make that journey simpler—with thoughtful solutions, open communication, and a focus on what helps each business move forward.</p>
+          </div>
+          <div className="about-people">
+            <div className="about-people-group">
+              <span className="about-people-label">Founders</span>
+              <div className="about-founder-list">
+                {founders.map((name, index) => (
+                  <article className="about-person-card" key={name}>
+                    <span className="about-person-monogram">{name.split(' ').map((part) => part[0]).join('')}</span>
+                    <span><strong>{name}</strong><small>Founder</small></span>
+                    <span className="about-person-number">0{index + 1}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="about-people-group">
+              <span className="about-people-label">The team</span>
+              <div className="about-team-grid">
+                {team.map(({ name, role }) => (
+                  <article className="about-team-card" key={name}>
+                    <span className="about-person-monogram">{name[0]}</span>
+                    <strong>{name}</strong>
+                    <small>{role}</small>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -4,15 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react'
 import { whatsappUrl } from '../lib/contact'
-
-const services = [
-  { title: 'Website Designing', detail: 'Responsive websites built around your business.' },
-  { title: 'Digital Marketing', detail: 'Reach the right customers and grow online.' },
-  { title: 'Social Media Management', detail: 'Build a consistent and engaging social presence.' },
-  { title: 'E-commerce Setup & Training', detail: 'Launch and manage your online store.' },
-  { title: 'B2B Business Setup', detail: 'Get set up on IndiaMART and other B2B platforms.' },
-  { title: 'Business Consulting', detail: 'Get practical guidance for your next stage of growth.' },
-]
+import { serviceList } from '../lib/services'
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -53,10 +45,10 @@ export function SiteHeader() {
               Services <ChevronDown size={15} />
             </button>
             <div className="service-menu">
-              {services.map(({ title, detail }) => (
-                <a className="service-menu-link" href="/services" key={title} onClick={closeMenu}>
+              {serviceList.map(({ slug, title, shortDescription }) => (
+                <a className="service-menu-link" href={`/services/${slug}`} key={slug} onClick={closeMenu}>
                   <span>{title}</span>
-                  <small>{detail}</small>
+                  <small>{shortDescription}</small>
                 </a>
               ))}
             </div>

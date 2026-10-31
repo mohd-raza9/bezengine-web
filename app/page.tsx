@@ -5,7 +5,6 @@ import {
   BarChart3,
   BriefcaseBusiness,
   Check,
-  ChevronDown,
   ExternalLink,
   Globe2,
   Layers3,
@@ -13,7 +12,6 @@ import {
   MessageCircle,
   Megaphone,
   Monitor,
-  Search,
   ShoppingBag,
   ShieldCheck,
   Sparkles,
@@ -23,17 +21,18 @@ import {
 import { SiteHeader } from '../components/site-header'
 import { InquiryForm } from '../components/inquiry-form'
 import { SiteFooter } from '../components/site-footer'
+import { PortfolioShowcase } from '../components/portfolio-showcase'
 import { feedbackUrl, mapEmbedUrl, mapUrl, whatsappUrl } from '../lib/contact'
 
 const services = [
-  { icon: BriefcaseBusiness, title: 'Business Consultation', text: 'Expert consultation and strategic guidance to grow your business.', featured: true },
-  { icon: Layers3, title: 'Complete Business Solutions', text: 'One place for all your online business and branding needs.' },
-  { icon: Users, title: 'B2B Business Setup', text: 'IndiaMART and other B2B platform account setup & management.' },
-  { icon: ShoppingBag, title: 'E-Commerce Setup', text: 'Amazon, Flipkart, Meesho and online store setup services.' },
-  { icon: Megaphone, title: 'Digital Marketing', text: 'Grow your business through social media and online marketing.' },
-  { icon: MessageCircle, title: 'Social Media Management', text: 'Professional management of Facebook, Instagram and other platforms.' },
-  { icon: Monitor, title: 'Website Development', text: 'Professional business and company websites with responsive design.' },
-  { icon: Check, title: 'GST Services', text: 'Quick and hassle-free GST registration and related services.' },
+  { icon: BriefcaseBusiness, title: 'Business Consultation', slug: 'business-consultation', text: 'Expert consultation and strategic guidance to grow your business.', featured: true },
+  { icon: Layers3, title: 'Complete Business Solutions', slug: 'complete-business-solutions', text: 'One place for all your online business and branding needs.' },
+  { icon: Users, title: 'B2B Business Setup', slug: 'b2b-business-setup', text: 'IndiaMART and other B2B platform account setup & management.' },
+  { icon: ShoppingBag, title: 'E-Commerce Setup', slug: 'ecommerce-setup', text: 'Amazon, Flipkart, Meesho and online store setup services.' },
+  { icon: Megaphone, title: 'Digital Marketing', slug: 'digital-marketing', text: 'Grow your business through social media and online marketing.' },
+  { icon: MessageCircle, title: 'Social Media Management', slug: 'social-media-management', text: 'Professional management of Facebook, Instagram and other platforms.' },
+  { icon: Monitor, title: 'Website Development', slug: 'website-development', text: 'Professional business and company websites with responsive design.' },
+  { icon: Check, title: 'GST Services', slug: 'gst-services', text: 'Quick and hassle-free GST registration and related services.' },
 ]
 
 const pillars = [
@@ -54,7 +53,9 @@ export default function Page() {
       <SiteHeader />
 
       <section className="hero" id="home">
-        <div className="hero-glow" />
+        <video className="hero-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true">
+          <source src="/videoplayback.webm" type="video/webm" />
+        </video>
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="eyebrow"><span className="eyebrow-dot" /> Complete online business solutions</div>
@@ -63,18 +64,6 @@ export default function Page() {
             <div className="hero-actions"><a className="button button-primary" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Get a free quote <ArrowRight size={17} /></a><a className="button button-ghost" href="#services">Explore services</a></div>
             <div className="hero-note"><span className="avatar-stack"><i /><i /><i /></span><span>Helping businesses grow online, one smart move at a time.</span></div>
           </div>
-          <div className="hero-visual" aria-label="BizEngine growth dashboard illustration">
-            <div className="orb orb-one" /><div className="orb orb-two" />
-            <div className="dashboard-card">
-              <div className="dash-top"><span className="dash-label">Business overview</span><span className="dash-menu">•••</span></div>
-              <div className="dash-title">Your growth, in motion <span>↗</span></div>
-              <div className="metric-row"><div><small>Online reach</small><strong>84.6k</strong><b>+24.8%</b></div><div><small>New enquiries</small><strong>1,284</strong><b>+18.2%</b></div></div>
-              <div className="chart"><div className="chart-grid" /><svg viewBox="0 0 420 150" role="img" aria-label="Upward growth chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#f08a47" stopOpacity=".35" /><stop offset="1" stopColor="#f08a47" stopOpacity="0" /></linearGradient></defs><path d="M0 122 C35 115 45 94 76 101 S112 114 142 82 S181 89 211 69 S252 81 279 51 S320 66 346 35 S385 42 420 11 V150 H0Z" fill="url(#area)" /><path d="M0 122 C35 115 45 94 76 101 S112 114 142 82 S181 89 211 69 S252 81 279 51 S320 66 346 35 S385 42 420 11" fill="none" stroke="#ed7c3a" strokeWidth="4" strokeLinecap="round" /></svg></div>
-              <div className="dash-footer"><span><i className="legend-dot orange" /> Reach</span><span><i className="legend-dot navy" /> Enquiries</span><span>Last 30 days <ChevronDown size={13} /></span></div>
-            </div>
-            <div className="float-card float-card-one"><span className="mini-icon"><Search size={15} /></span><div><strong>More visibility</strong><small>SEO & marketing</small></div></div>
-            <div className="float-card float-card-two"><span className="mini-icon green"><Check size={15} /></span><div><strong>Strategy delivered</strong><small>Ready to grow</small></div></div>
-          </div>
         </div>
       </section>
 
@@ -82,7 +71,9 @@ export default function Page() {
 
       <section className="section about" id="about"><div className="container about-grid"><div><div className="section-kicker">Why BizEngine</div><h2>Smart solutions for <span>ambitious businesses.</span></h2></div><div><p className="lead">BizEngine helps startups, entrepreneurs and businesses establish a powerful online presence through strategy, technology and hands-on execution.</p><a className="text-link" href="#services">Discover what we do <ArrowRight size={16} /></a></div></div><div className="container pillars">{pillars.map(({ icon: Icon, title, text }) => <article className="pillar" key={title}><div className="icon-tile"><Icon size={20} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
-      <section className="section services" id="services"><div className="container"><div className="services-heading"><div><div className="section-kicker">Our services</div><h2>Everything to move<br /><span>your business forward.</span></h2></div><p>From your first idea to your next milestone, we bring the expertise and execution to help you grow online.</p></div><div className="service-grid">{services.map(({ icon: Icon, title, text, featured }) => <article className={`service-card ${featured ? 'featured' : ''}`} key={title}><div className="service-icon"><Icon size={21} /></div><h3>{title}</h3><p>{text}</p><a href="#contact" aria-label={`Learn more about ${title}`}><ArrowRight size={17} /></a></article>)}</div></div></section>
+      <section className="section services" id="services"><div className="container"><div className="services-heading"><div><div className="section-kicker">Our services</div><h2>Everything to move<br /><span>your business forward.</span></h2></div><p>From your first idea to your next milestone, we bring the expertise and execution to help you grow online.</p></div><div className="service-grid">{services.map(({ icon: Icon, title, text, featured, slug }) => <a className={`service-card ${featured ? 'featured' : ''}`} href={`/services/${slug}`} key={slug}><div className="service-icon"><Icon size={21} /></div><h3>{title}</h3><p>{text}</p><span className="service-card-arrow" aria-hidden="true"><ArrowRight size={17} /></span></a>)}</div></div></section>
+
+      <PortfolioShowcase />
 
       <section className="section reviews" id="reviews">
         <div className="container">
